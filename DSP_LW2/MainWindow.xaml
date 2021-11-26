@@ -91,13 +91,16 @@
                 <Button.Style>
                     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=tbN, UpdateSourceTrigger=PropertyChanged}" Value="">
-                                <Setter Property="IsEnabled" Value="False"/>
-                            </DataTrigger>
                             <DataTrigger Binding="{Binding Text, ElementName=tbMinHarmonic, UpdateSourceTrigger=PropertyChanged}" Value="">
                                 <Setter Property="IsEnabled" Value="False"/>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Text, ElementName=tbMaxHarmonic, UpdateSourceTrigger=PropertyChanged}" Value="">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=cmbSignalType, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Text, ElementName=tbN, UpdateSourceTrigger=PropertyChanged}" Value="">
                                 <Setter Property="IsEnabled" Value="False"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -117,6 +120,9 @@
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Text, ElementName=tbMaxHarmonic, UpdateSourceTrigger=PropertyChanged}" Value="">
                                 <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=cmbSignalType, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                <Setter Property="IsEnabled" Value="True"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
