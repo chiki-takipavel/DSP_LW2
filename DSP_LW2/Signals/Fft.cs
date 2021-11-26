@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace DSP_LW2
+namespace DSP_LW2.Signals
 {
     public static class Fft
     {

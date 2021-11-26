@@ -1,4 +1,4 @@
-﻿namespace DSP_LW2.Signals
+﻿namespace DSP_LW2.Models
 {
     public enum FiltrationType
     {
