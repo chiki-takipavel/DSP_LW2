@@ -41,14 +41,6 @@ namespace DSP_LW2
             listSignals.ItemsSource = Signals;
         }
 
-        private void PlayClick(object sender, RoutedEventArgs e)
-        {
-            PolyHarmonicSignal signal = GetPolyHarmonicSignal(Signals, 32768);
-            signal.GenerateSpectrum(true);
-            List<float> values = signal.RestoreSignal.Select(value => (float)value).ToList();
-            PlaySound(values);
-        }
-
         private void AddClick(object sender, RoutedEventArgs e)
         {
             Signals.Add(new ParametersModel());
@@ -79,15 +71,12 @@ namespace DSP_LW2
             chart.CreateSpectrumChart(amplitudesValues, phasesValues);
         }
 
-        private void SignalClick(object sender, RoutedEventArgs e)
+        private void PlayClick(object sender, RoutedEventArgs e)
         {
-            if (Signals.Count > 1)
-            {
-                for (int i = Signals.Count - 1; i >= 1; i--)
-                {
-                    Signals.RemoveAt(i);
-                }
-            }
+            PolyHarmonicSignal signal = GetPolyHarmonicSignal(Signals, 32768);
+            signal.GenerateSpectrum(true);
+            List<float> values = signal.RestoreSignal.Select(value => (float)value).ToList();
+            PlaySound(values);
         }
 
         private static void PlaySound(List<float> samples)
@@ -105,7 +94,6 @@ namespace DSP_LW2
 
         private PolyHarmonicSignal GetPolyHarmonicSignal(IEnumerable<ParametersModel> models, int n)
         {
-
             List<Signal> signals = new();
             foreach (var model in models)
             {
