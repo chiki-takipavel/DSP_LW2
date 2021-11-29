@@ -102,8 +102,8 @@ namespace DSP_LW2
             }
 
             FiltrationType filtrationType = (FiltrationType)cmbSignalType.SelectedIndex;
-            int minHarmonic = int.Parse(tbMinHarmonic.Text);
-            int maxHarmonic = int.Parse(tbMaxHarmonic.Text);
+            _ = int.TryParse(tbMinHarmonic.Text, out int minHarmonic);
+            _ = int.TryParse(tbMaxHarmonic.Text, out int maxHarmonic);
             PolyHarmonicSignal polyHarmonicSignal = new(signals, filtrationType, minHarmonic, maxHarmonic);
             return polyHarmonicSignal;
         }
